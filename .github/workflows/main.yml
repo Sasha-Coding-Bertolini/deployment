@@ -28,9 +28,9 @@ jobs:
           pytest
         working-directory: ./
 
-- name: Deploy to VPS
-  env:
-    SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-  run: |
-   ssh -i /Users/valentinamazzucato/.ssh/deploy_key root@ubuntu-s-1vcpu-512mb-10gb-fra1-01 "cd /home/farm && git pull origin master && systemctl restart farm.service"
+      - name: Deploy to VPS
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          ssh -i /Users/valentinamazzucato/.ssh/deploy_key root@ubuntu-s-1vcpu-512mb-10gb-fra1-01 "cd /home/farm && git pull origin master && systemctl restart farm.service"
 
