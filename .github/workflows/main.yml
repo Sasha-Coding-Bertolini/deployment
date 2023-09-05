@@ -31,7 +31,5 @@ jobs:
         working-directory: ./
 
       - name: Deploy to VPS
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          ssh -i /Users/valentinamazzucato/.ssh/deploy_key root@164.92.236.220 "cd /home/farm && git pull origin master && systemctl restart farm.service"
+          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} root@164.92.236.220 "cd /home/farm && git pull origin master && systemctl restart farm.service"
