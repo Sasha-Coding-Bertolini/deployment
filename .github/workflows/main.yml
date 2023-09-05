@@ -34,4 +34,4 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          ssh -i /Users/valentinamazzucato/.ssh/deploy_key root@ubuntu-s-1vcpu-512mb-10gb-fra1-01 "cd /home/farm && git pull origin master && systemctl restart farm.service"
+          ssh -i /Users/valentinamazzucato/.ssh/deploy_key root@164.92.236.220 "cd /home/farm && git pull origin master && systemctl restart farm.service"
