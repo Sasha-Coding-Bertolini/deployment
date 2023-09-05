@@ -21,6 +21,11 @@ jobs:
           pip install -r requirements.txt
         working-directory: ./
 
+     - name: Install Flask
+        run: |
+          pip install Flask
+        working-directory: ./ 
+
       - name: Run tests
         run: |
           pytest
