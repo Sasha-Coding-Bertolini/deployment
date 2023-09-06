@@ -20,16 +20,23 @@ jobs:
           pip install -r requirements.txt
         working-directory: ./
 
-      - name: Install Flask
-        run: |
-          pip install Flask
-        working-directory: ./
-
       - name: Run tests
         run: |
           pytest
         working-directory: ./
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to VPS
-        run: |
-          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} root@164.92.236.220 "cd /home/farm && git pull origin master && systemctl restart farm.service"
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /home/farm
+            git pull origin master
+            systemctl restart farm.service
