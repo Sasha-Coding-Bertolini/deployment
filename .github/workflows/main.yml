@@ -38,6 +38,6 @@ jobs:
           port: ${{ secrets.PORT }}
           debug: true
           script: |
-            cd /home/farm
+            cd /var/www/final-assignment
             git pull origin main
-            systemctl restart farm.service
+            systemctl restart final-assignment.service
