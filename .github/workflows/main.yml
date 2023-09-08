@@ -39,5 +39,8 @@ jobs:
           debug: true
           script: |
             cd /var/www/final-assignment
+            pwd
+            whoami
             git pull origin main
             systemctl restart final-assignment.service
+            systemctl status final-assignment
