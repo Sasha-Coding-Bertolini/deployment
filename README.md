@@ -1,6 +1,6 @@
-### Report on CI/CD Pipeline Solution for Flask Application
+# Report on CI/CD Pipeline Solution for Flask Application
 
-# Components of the Solution:
+## Components of the Solution:
 
 - GitHub Actions: GitHub Actions is a crucial component of this solution, serving as the automation engine for the CI/CD pipeline. It's responsible for detecting code changes, running tests, and triggering deployments. It does this by utilizing predefined workflows specified in YAML files.
 
@@ -8,7 +8,7 @@
 
 - Digital Ocean VPS: The Virtual Private Server (VPS) hosted on Digital Ocean is the target environment where the Flask application is deployed. It provides the infrastructure for running the application. Digital Ocean VPS offers scalability, reliability, and ease of deployment.
 
-# Challenges Encountered and Solutions:
+## Challenges Encountered and Solutions:
 
 - SSH Key Configuration: One challenge was configuring SSH keys for secure communication between GitHub Actions and the VPS. The solution involved generating a new SSH key pair on the GitHub Actions runner, adding the public key to the VPS's authorized keys, and storing the private key as a GitHub secret.
 
